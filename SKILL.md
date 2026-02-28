@@ -129,7 +129,6 @@ The **Author Note** copy must appear exactly as:
 
 In Markdown:
 
-```markdown
 ## Author Note
 
 Dr. Harry Landsaw is the founder of SightLineAI™ and an independent optometry practice owner who spent years as his own communication bottleneck before developing the structured approach described in this article. He works exclusively with independent ODs navigating the operational side of practice ownership.
@@ -137,186 +136,150 @@ If the draft contains a different bio, replace it with this standardized Author 
 ________________________________________
 Metadata JSON Format
 After you finish the article, generate a clean JSON object with:
-json
-{
-  "Title": "...",
-  "Slug": "...",
-  "MetaDescription": "...",
-  "PrimaryKeyword": "...",
-  "SecondaryKeywords": ["...", "..."],
-  "Author": "Dr. Harry Landsaw, OD",
-  "AuthorRole": "Founder of SightLineAI™ and independent optometry practice owner",
-  "Audience": "Independent optometry practice owners",
-  "JourneyStage": "Awareness | Consideration | Decision",
-  "Pillar": "Cost/Price | Problems/Drawbacks | Versus/Comparisons | Reviews/Proof | Best/How-To",
-  "WordCount": 0,
-  "PublishedDate": "YYYY-MM-DD",
-  "LastUpdatedDate": "YYYY-MM-DD",
-  "CanonicalURL": "https://sightlineaisolutions.com/blog/[slug]/",
-  "Organization": "SightLineAI™",
-  "OrganizationType": "ProfessionalService",
-  "Industry": "Independent Optometry",
-  "Location": "Williamsburg, Florida, United States",
-  "SchemaTypes": ["BlogPosting", "FAQPage"],
-  "HasFAQSection": true,
-  "Tags": ["SightLineAI", "Independent Optometry", "Recall Systems", "Practice Communication"],
-  "SummaryForAI": "One or two sentences summarizing the core argument in plain language, optimized for AI assistants.",
-  "IsEvergreen": true
-}
-Guidelines:
-•	Title: Match or lightly refine the H1.
-•	Slug: Lowercase, hyphenated, no date (e.g., why-does-my-recall-system-keep-failing).
-•	MetaDescription: 150–160 characters, plain language.
-•	PrimaryKeyword / SecondaryKeywords: Use realistic search phrases ODs would use.
-•	WordCount: Estimate based on the final article.
-•	Dates: If not supplied, you can leave them as "YYYY-MM-DD" placeholders for Manus to fill.
-Return the JSON in a fenced block:
-text
+
 ```json
-{ ... }
-text
+{
+  "Title": "...",
+  "Slug": "...",
+  "MetaDescription": "...",
+  "PrimaryKeyword": "...",
+  "SecondaryKeywords": ["...", "..."],
+  "Author": "Dr. Harry Landsaw, OD",
+  "AuthorRole": "Founder of SightLineAI™ and independent optometry practice owner",
+  "Audience": "Independent optometry practice owners",
+  "JourneyStage": "Awareness | Consideration | Decision",
+  "Pillar": "Cost/Price | Problems/Drawbacks | Versus/Comparisons | Reviews/Proof | Best/How-To",
+  "WordCount": 0,
+  "PublishedDate": "YYYY-MM-DD",
+  "LastUpdatedDate": "YYYY-MM-DD",
+  "CanonicalURL": "https://sightlineaisolutions.com/blog/[slug]/",
+  "Organization": "SightLineAI™",
+  "OrganizationType": "ProfessionalService",
+  "Industry": "Independent Optometry",
+  "Location": "Williamsburg, Florida, United States",
+  "SchemaTypes": ["BlogPosting", "FAQPage"],
+  "HasFAQSection": true,
+  "Tags": ["SightLineAI", "Independent Optometry", "Recall Systems", "Practice Communication"],
+  "SummaryForAI": "One or two sentences summarizing the core argument in plain language, optimized for AI assistants.",
+  "IsEvergreen": true
+}
+```
 
----
+Guidelines:
 
-## Step-by-Step Behavior
+Title: Match or lightly refine the H1.
 
-1. **Ingest the Draft**
-   - Read the full Markdown draft.  
-   - Identify H1, sections, FAQs, and existing Author Note.
+Slug: Lowercase, hyphenated, no date (e.g., why-does-my-recall-system-keep-failing).
 
-2. **Check Structure**
-   - Ensure all required sections exist.  
-   - If **Key Takeaways** or **Outline** are missing or weak, rebuild them.
+MetaDescription: 150–160 characters, plain language.
 
-3. **Optimize for AEO**
-   - Adjust H2/H3s to be:
-     - Clear, question-aware where relevant.  
-     - Entity-rich (recall system, independent practice, no-shows, etc.).
-   - Make **Key Takeaways** scannable, each stating a distinct, concrete point.
-   - Strengthen the **FAQ**:
-     - 4–6 questions per article.  
-     - Each answer 1–3 paragraphs, directly answering the question.
+PrimaryKeyword / SecondaryKeywords: Use realistic search phrases ODs would use.
 
-4. **Reinforce E E A T**
-   - Confirm the author is clearly Dr. Harry.  
-   - Insert or replace the **Author Note** with the standardized version.  
-   - Ensure **References** are present and formatted as a numbered list.
+WordCount: Estimate based on the final article.
 
-5. **Maintain Word Count**
-   - If the optimized article drops **below 3,000 words**, expand:
-     - Explanations with more examples, scenarios, or stepwise breakdowns.  
-     - FAQ coverage (more useful questions) rather than fluff.  
-   - Aim to stay in the **3,000–4,500 word** band when input length allows it.
+Dates: If not supplied, you can leave them as "YYYY-MM-DD" placeholders for Manus to fill.
 
-6. **Generate Metadata JSON**
-   - Derive Title, Slug, MetaDescription, Keywords, etc. from the final article.  
-   - Produce a single clean JSON object as shown above.
+Step-by-Step Behavior
+Ingest the Draft
+   - Read the full Markdown draft.  
+   - Identify H1, sections, FAQs, and existing Author Note.
 
-7. **Return Output**
-   - Final article in Markdown (starting with H1).  
-   - Then the metadata JSON in a fenced `json` code block.
+Check Structure
+   - Ensure all required sections exist.  
+   - If Key Takeaways or Outline are missing or weak, rebuild them.
+
+Optimize for AEO
+   - Adjust H2/H3s to be clear, question-aware, and entity-rich.
+   - Make Key Takeaways scannable, each stating a distinct, concrete point.
+   - Strengthen the FAQ (4–6 questions, 1-3 paragraphs each).
+
+Reinforce E-E-A-T
+   - Confirm the author is clearly Dr. Harry.  
+   - Insert or replace the Author Note with the standardized version.  
+   - Ensure References are present and formatted as a numbered list.
+
+Maintain Word Count
+   - If the optimized article drops below 3,000 words, expand explanations and FAQ coverage. Aim to stay in the 3,000–4,500 word band.
+
+Generate Metadata JSON
+   - Derive Title, Slug, MetaDescription, Keywords, etc. from the final article.  
+
+Return Output
+   - Final article in Markdown (starting with H1).  
+   - Then the metadata JSON in a fenced json code block at the very end.
 
 ---
 
 ## Output Template
 
-Use this exact pattern:
-
-```markdown
-# [Final H1 Title]
-
+Use this exact pattern. DO NOT wrap the markdown article in a code block. Only wrap the JSON metadata in a code block at the very end.
+[Final H1 Title]
 [Immediate answer / opening stays, but refined for clarity if needed.]
-
-## Key Takeaways
-
-- [Takeaway 1]
-- [Takeaway 2]
-- [Takeaway 3]
-- [Optional 4–5]
-
-## Outline
-
-- [Section 1]
-- [Section 2]
-- [Section 3]
-- [Section 4]
-- [Optional more sections]
-
-## [H2 – Main Body Section 1]
-
+Key Takeaways
+•	[Takeaway 1]
+•	[Takeaway 2]
+•	[Takeaway 3]
+•	[Optional 4–5]
+Outline
+•	[Section 1]
+•	[Section 2]
+•	[Section 3]
+•	[Section 4]
+•	[Optional more sections]
+[H2 – Main Body Section 1]
 [Optimized content...]
-
-### [H3 subtopic]
-
+[H3 subtopic]
 [Content...]
-
-## [H2 – Main Body Section 2]
-
+[H2 – Main Body Section 2]
 [...]
-
-## Frequently Asked Questions
-
-### [Question 1]
-
+Frequently Asked Questions
+[Question 1]
 [Answer 1]
-
-### [Question 2]
-
+[Question 2]
 [Answer 2]
-
-### [Question 3]
-
+[Question 3]
 [Answer 3]
-
-### [Question 4]
-
+[Question 4]
 [Answer 4]
-
 [Add up to 5–6 FAQs total.]
-
-## Final Thoughts
-
+Final Thoughts
 [Final synthesis and next steps.]
-
-## Author Note
-
+Author Note
 Dr. Harry Landsaw is the founder of SightLineAI™ and an independent optometry practice owner who spent years as his own communication bottleneck before developing the structured approach described in this article. He works exclusively with independent ODs navigating the operational side of practice ownership.
-
-## References
-
-1. [Reference 1]
-2. [Reference 2]
-3. [Reference 3]
-4. [Reference 4]
-5. [Reference 5]
-6. [Optional 6]
-
+References
+1.	[Reference 1]
+2.	[Reference 2]
+3.	[Reference 3]
+4.	[Reference 4]
+5.	[Reference 5]
+6.	[Optional 6]
 ```json
 {
-  "Title": "...",
-  "Slug": "...",
-  "MetaDescription": "...",
-  "PrimaryKeyword": "...",
-  "SecondaryKeywords": ["...", "..."],
-  "Author": "Dr. Harry Landsaw, OD",
-  "AuthorRole": "Founder of SightLineAI™ and independent optometry practice owner",
-  "Audience": "Independent optometry practice owners",
-  "JourneyStage": "Awareness | Consideration | Decision",
-  "Pillar": "Cost/Price | Problems/Drawbacks | Versus/Comparisons | Reviews/Proof | Best/How-To",
-  "WordCount": 0,
-  "PublishedDate": "YYYY-MM-DD",
-  "LastUpdatedDate": "YYYY-MM-DD",
-  "CanonicalURL": "https://sightlineaisolutions.com/blog/[slug]/",
-  "Organization": "SightLineAI™",
-  "OrganizationType": "ProfessionalService",
-  "Industry": "Independent Optometry",
-  "Location": "Williamsburg, Florida, United States",
-  "SchemaTypes": ["BlogPosting", "FAQPage"],
-  "HasFAQSection": true,
-  "Tags": ["SightLineAI", "Independent Optometry"],
-  "SummaryForAI": "One or two sentences summarizing the core argument in plain language, optimized for AI assistants.",
-  "IsEvergreen": true
+  "Title": "...",
+  "Slug": "...",
+  "MetaDescription": "...",
+  "PrimaryKeyword": "...",
+  "SecondaryKeywords": ["...", "..."],
+  "Author": "Dr. Harry Landsaw, OD",
+  "AuthorRole": "Founder of SightLineAI™ and independent optometry practice owner",
+  "Audience": "Independent optometry practice owners",
+  "JourneyStage": "Awareness | Consideration | Decision",
+  "Pillar": "Cost/Price | Problems/Drawbacks | Versus/Comparisons | Reviews/Proof | Best/How-To",
+  "WordCount": 0,
+  "PublishedDate": "YYYY-MM-DD",
+  "LastUpdatedDate": "YYYY-MM-DD",
+  "CanonicalURL": "https://sightlineaisolutions.com/blog/[slug]/",
+  "Organization": "SightLineAI™",
+  "OrganizationType": "ProfessionalService",
+  "Industry": "Independent Optometry",
+  "Location": "Williamsburg, Florida, United States",
+  "SchemaTypes": ["BlogPosting", "FAQPage"],
+  "HasFAQSection": true,
+  "Tags": ["SightLineAI", "Independent Optometry"],
+  "SummaryForAI": "One or two sentences summarizing the core argument in plain language, optimized for AI assistants.",
+  "IsEvergreen": true
 }
+```
 text
 
 ---
